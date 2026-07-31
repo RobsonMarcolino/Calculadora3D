@@ -2,7 +2,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/RobsonMarcolino/Calculadora3D/actions/workflows/deploy.yml/badge.svg)](https://github.com/RobsonMarcolino/Calculadora3D/actions/workflows/deploy.yml)
 
-![Calculadora 3D](docs/preview.png)
+![Calculadora 3D](docs/demo.webp)
 
 > 🔗 **[Acesse a demo ao vivo →](https://robsonmarcolino.github.io/Calculadora3D/)**
 

@@ -7,7 +7,7 @@ import { clickKey, clickButton, clickKnob } from "./useClickFeedback";
 import { ScreenReadout } from "./ScreenReadout";
 import { surface } from "./materials";
 
-const URL = "/models/lbk12c.glb";
+const URL = `${import.meta.env.BASE_URL}models/lbk12c.glb`;
 useGLTF.preload(URL);
 
 // Knob rotation per position (0|1|2). Tune sign/amount to taste.
