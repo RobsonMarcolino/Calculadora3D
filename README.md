@@ -1,4 +1,4 @@
-# LBK-12C, Freelancer Pricing Calculator
+# Robson jr, Calculadora Freelancer
 
 ![LBK-12C](docs/preview.png)
 
@@ -37,4 +37,4 @@ pnpm build      # saída estática em dist/
 
 Containerizado com um **Dockerfile** multi-stage (build em Node, depois **nginx** servindo o bundle estático). Veja `Dockerfile` e `nginx.conf`. A integração do modelo GLB está documentada em `MODEL_INTEGRATION.md`.
 
-© Leo Becker Media House
+© Robson Marcolino
