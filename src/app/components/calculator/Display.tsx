@@ -66,7 +66,7 @@ export function Display({
               letterSpacing: "0.04em",
             }}
           >
-            LBK-12C
+            Calculadora 3D
           </span>
         </div>
         <div

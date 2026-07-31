@@ -46,7 +46,7 @@ function Footer() {
         zIndex: 10,
       }}
     >
-      LEO BECKER® MEDIA HOUSE 2026
+      ROBSON JR® 2026
     </footer>
   );
 }
@@ -73,7 +73,7 @@ function Header() {
         zIndex: 10,
       }}
     >
-      LBK-12C | Freelancer Calculator V.1.0
+      Robson Jr | Calculadora Freelancer V.1.0
     </header>
   );
 }
@@ -160,7 +160,7 @@ function App3D() {
   return (
     <div className="size-full" style={{ background: pageBg }}>
       <Header />
-      <Leva hidden={!edit} collapsed={false} titleBar={{ title: "LBK-12C · layout" }} />
+      <Leva hidden={!edit} collapsed={false} titleBar={{ title: "Calculadora 3D · layout" }} />
       <Suspense fallback={null}>
         <Scene layout={layout} set={(p) => set(p as never)} edit={edit} />
       </Suspense>

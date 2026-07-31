@@ -63,7 +63,7 @@ export function ScreenReadout({
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             <LogoMark size={34} />
             <span style={{ fontFamily: SCAN, color: COLORS.teal, fontSize: 24, letterSpacing: "0.04em" }}>
-              LBK-12C
+              Calculadora 3D
             </span>
           </div>
           <div
