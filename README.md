@@ -51,12 +51,6 @@ pnpm build      # saída estática em dist/
 ## 🌐 Deploy
 
 O deploy é automático via **GitHub Actions**. Cada push na branch `main` dispara o build e publica no GitHub Pages.
-
-## 📄 Créditos
-
-- **Projeto original:** [LBK-12C](https://github.com/leobeckerdesign/lbk-12c) por [Leo Becker](https://leobecker.com)
-- **Fork e adaptação:** [Robson Marcolino Jr](https://github.com/RobsonMarcolino)
-
 ---
 
 © 2026 Robson Marcolino Jr — Baseado no projeto LBK-12C de Leo Becker Media House
