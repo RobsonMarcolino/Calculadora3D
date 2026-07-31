@@ -10,12 +10,6 @@ Uma ferramenta de precificação para designers freelancer, construída como um 
 
 ---
 
-## 👨‍💻 Sobre este projeto
-
-Este projeto foi desenvolvido por **Robson Marcolino Jr** como estudo e aprendizado, baseado no projeto original [LBK-12C](https://github.com/leobeckerdesign/lbk-12c) criado por **Leo Becker** ([Leo Becker Media House](https://leobecker.com)).
-
-Agradeço ao Leo pelo projeto incrível que serviu como base para meu aprendizado em React Three Fiber, modelagem 3D com Three.js e desenvolvimento web moderno.
-
 ## ✨ O que faz
 
 Escolha um serviço (**ID**, **Landing Page** ou **Pitch Deck**), ajuste o porte do cliente, o seu nível de senioridade e o quanto você quer o trabalho. O dispositivo calcula um preço calibrado ao mercado e ainda explica a metodologia por trás.
@@ -51,6 +45,7 @@ pnpm build      # saída estática em dist/
 ## 🌐 Deploy
 
 O deploy é automático via **GitHub Actions**. Cada push na branch `main` dispara o build e publica no GitHub Pages.
+
 ---
 
-© 2026 Robson Marcolino Jr — Baseado no projeto LBK-12C de Leo Becker Media House
+© 2026 Robson Marcolino Jr
