@@ -1,9 +1,13 @@
 // Pure, well-typed pricing model for the LBK-12C freelancer calculator.
 // All tunable numbers live here so the formula is easy to tweak later.
 
+/** Type of creative service the freelancer can offer. */
 export type Service = "id" | "lp" | "pitchdeck";
+/** Size of the client's business — determines the price column. */
 export type ClientSize = "pequeno" | "medio" | "grande";
+/** Freelancer's experience level — scales the base price. */
 export type Experience = "junior" | "pleno" | "senior";
+/** How much the freelancer wants this particular project — strategic discount. */
 export type Opportunity = "pouca" | "media" | "alta";
 
 export interface PricingInput {
@@ -46,12 +50,14 @@ export const SERVICE_PRICES: Record<Service, Record<ClientSize, number>> = {
   pitchdeck: { pequeno: 2000, medio: 6000, grande: 15000 },
 };
 
+/** Experience level multiplier. Junior gets a discount, senior gets a premium. */
 export const EXPERIENCE_MULT: Record<Experience, number> = {
   junior: 0.75,
   pleno: 1.0,
   senior: 1.4,
 };
 
+/** Opportunity multiplier. Higher desire = strategic discount to win the project. */
 export const OPPORTUNITY_MULT: Record<Opportunity, number> = {
   pouca: 1.0,
   media: 0.9,
