@@ -2,7 +2,8 @@
 
 [![Deploy to GitHub Pages](https://github.com/RobsonMarcolino/Calculadora3D/actions/workflows/deploy.yml/badge.svg)](https://github.com/RobsonMarcolino/Calculadora3D/actions/workflows/deploy.yml)
 
-![Calculadora 3D](docs/preview.png)
+<img width="1847" height="896" alt="image" src="https://github.com/user-attachments/assets/0b38cf8e-4b21-4e64-a1e5-fb6e3a213537" />
+
 
 > 🔗 **[Acesse a demo ao vivo →](https://robsonmarcolino.github.io/Calculadora3D/)**
 
