@@ -25,12 +25,15 @@ export function ServiceKey({
       animate={{ y: 0, boxShadow: keycapShadow }}
       transition={{ type: "spring", stiffness: 600, damping: 18 }}
       className="relative flex flex-col items-center justify-between"
+      aria-label={`Serviço ${label}: ${active ? "ativo" : "inativo"}`}
+      aria-pressed={active}
       style={{
         background: `linear-gradient(165deg, #e2d8bb 0%, ${COLORS.keycap} 55%, #b6a888 100%)`,
         borderRadius: 6,
         padding: "10px 6px 8px",
         cursor: "pointer",
         height: "100%",
+        outline: "none",
       }}
     >
       <span
@@ -147,7 +150,7 @@ export function Knob({
               "0 4px 8px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.15), inset 0 -3px 6px rgba(0,0,0,0.6)",
             cursor: "pointer",
           }}
-          aria-label={`${label}: ${valueLabel}`}
+          aria-label={`${label}: ${valueLabel}. Clique para alternar.`}
         >
           <motion.span
             className="absolute"

@@ -88,6 +88,9 @@ export function Display({
       <div className="relative flex items-center justify-end" style={{ padding: "2% 0 0" }}>
         <motion.div
           key={bigText.length}
+          role="status"
+          aria-live="polite"
+          aria-label={show ? `Preço calculado: R$ ${bigText}` : "Aguardando cálculo"}
           style={{
             fontFamily: DOT,
             // Bitcount is a pixel-grid variable font: ELSH 0 = round dots
