@@ -23,7 +23,8 @@
     /* Path aliases */
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["@react-three/fiber"]
   },
   "include": ["src", "tests"]
 }
