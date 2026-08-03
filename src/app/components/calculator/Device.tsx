@@ -1,7 +1,10 @@
 import { useMemo, useState } from "react";
 import { COLORS } from "./tokens";
+import { fireConfetti } from "./useConfetti";
 import { Display } from "./Display";
 import { ServiceKey, Knob, BigKey } from "./Controls";
+import { generateQuotePDF } from "./exportPDF";
+import { FileDown } from "lucide-react";
 import {
   calculatePrice,
   type PricingResult,
@@ -60,6 +63,7 @@ export function Device() {
   const calcular = () => {
     setCalcResult(result);
     setFlash(true);
+    if (services.length > 0) fireConfetti();
     window.setTimeout(() => setFlash(false), 320);
   };
 
@@ -133,9 +137,44 @@ export function Device() {
       </div>
 
       {/* action keys */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-3 relative">
         <BigKey label="ZERAR" variant="beige" side="left" onClick={reset} />
         <BigKey label="CALCULAR" variant="orange" side="right" onClick={calcular} />
+        {/* PDF export button overlay, appearing only after calculation */}
+        {calcResult !== null && services.length > 0 && (
+          <button
+            type="button"
+            onClick={() => {
+              generateQuotePDF({
+                isActive: (s: Service) => services.includes(s),
+                clientLabel: CLIENT_LABELS[client],
+                experienceLabel: EXPERIENCE_LABELS[experience],
+                opportunityLabel: OPPORTUNITY_LABELS[opportunity],
+                projectPrice: calcResult.projectPrice,
+              } as any);
+            }}
+            title="Exportar orçamento em PDF"
+            style={{
+              position: "absolute",
+              top: -46, // sits just above the action buttons, to the right
+              right: 12,
+              background: COLORS.teal,
+              color: "#fff",
+              border: "none",
+              borderRadius: "50%",
+              width: 36,
+              height: 36,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
+              zIndex: 10,
+            }}
+          >
+            <FileDown size={18} />
+          </button>
+        )}
       </div>
     </div>
   );

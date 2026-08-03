@@ -1,4 +1,5 @@
-import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { fireConfetti } from "../calculator/useConfetti";
 import {
   calculatePrice,
   type PricingResult,
@@ -12,6 +13,7 @@ import {
   type ClientSize,
   type Opportunity,
 } from "../calculator/pricing";
+import { readStateFromURL, writeStateToURL } from "../calculator/urlState";
 
 type Pos = 0 | 1 | 2;
 
@@ -55,11 +57,14 @@ export function useCalculator(): CalculatorState {
 }
 
 export function CalculatorProvider({ children }: { children: React.ReactNode }) {
-  const [services, setServices] = useState<Service[]>([]);
+  // Hydrate initial state from URL if available
+  const initial = useMemo(() => readStateFromURL(), []);
+
+  const [services, setServices] = useState<Service[]>(initial?.services ?? []);
   const custo = CUSTO_START;
-  const [expPos, setExpPos] = useState<Pos>(1);
-  const [clientPos, setClientPos] = useState<Pos>(1);
-  const [oppPos, setOppPos] = useState<Pos>(1);
+  const [expPos, setExpPos] = useState<Pos>(initial?.expPos ?? 1);
+  const [clientPos, setClientPos] = useState<Pos>(initial?.clientPos ?? 1);
+  const [oppPos, setOppPos] = useState<Pos>(initial?.oppPos ?? 1);
   const [flash, setFlash] = useState(false);
   const [calcResult, setCalcResult] = useState<PricingResult | null>(null);
 
@@ -84,8 +89,9 @@ export function CalculatorProvider({ children }: { children: React.ReactNode }) 
   const calcular = useCallback(() => {
     setCalcResult(result);
     setFlash(true);
+    if (services.length > 0) fireConfetti();
     window.setTimeout(() => setFlash(false), 320);
-  }, [result]);
+  }, [result, services.length]);
 
   const reset = useCallback(() => {
     setServices([]);
@@ -93,7 +99,13 @@ export function CalculatorProvider({ children }: { children: React.ReactNode }) 
     setClientPos(1);
     setOppPos(1);
     setCalcResult(null);
+    writeStateToURL({ services: [], expPos: 1, clientPos: 1, oppPos: 1 });
   }, []);
+
+  // Sync state to URL on every change
+  useEffect(() => {
+    writeStateToURL({ services, expPos, clientPos, oppPos });
+  }, [services, expPos, clientPos, oppPos]);
 
   const servicesLine = SERVICE_ORDER.filter((s) => services.includes(s))
     .map((s) => SERVICE_LABELS[s])
