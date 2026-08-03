@@ -3,6 +3,7 @@ import { Leva, useControls, folder, button } from "leva";
 import { Device } from "./components/calculator/Device";
 import { COLORS } from "./components/calculator/tokens";
 import { Scene } from "./components/calculator3d/Scene";
+import { LoadingScreen } from "./components/calculator3d/LoadingScreen";
 import {
   loadLayout,
   saveLayout,
@@ -161,6 +162,7 @@ function App3D() {
     <div className="size-full" style={{ background: pageBg }}>
       <Header />
       <Leva hidden={!edit} collapsed={false} titleBar={{ title: "Calculadora 3D · layout" }} />
+      <LoadingScreen />
       <Suspense fallback={null}>
         <Scene layout={layout} set={(p) => set(p as never)} edit={edit} />
       </Suspense>
