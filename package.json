@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -50,6 +52,7 @@
     "date-fns": "3.6.0",
     "embla-carousel-react": "8.6.0",
     "input-otp": "1.4.2",
+    "jspdf": "^4.2.1",
     "leva": "0.10.0",
     "lucide-react": "0.487.0",
     "motion": "12.23.24",
@@ -77,9 +80,11 @@
     "@types/react-dom": "^19.2.4",
     "@types/three": "0.169.0",
     "@vitejs/plugin-react": "4.7.0",
+    "jsdom": "^30.0.1",
     "tailwindcss": "4.1.12",
     "typescript": "^7.0.2",
-    "vite": "6.3.5"
+    "vite": "6.3.5",
+    "vitest": "^4.1.10"
   },
   "peerDependencies": {
     "react": "18.3.1",
