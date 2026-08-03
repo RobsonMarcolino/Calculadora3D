@@ -116,9 +116,6 @@ importers:
       '@react-three/postprocessing':
         specifier: 2.16.3
         version: 2.16.3(@react-three/fiber@8.17.10(@types/react@19.2.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.169.0))(@types/three@0.169.0)(react@18.3.1)(three@0.169.0)
-      canvas-confetti:
-        specifier: 1.9.4
-        version: 1.9.4
       class-variance-authority:
         specifier: 0.7.1
         version: 0.7.1
@@ -2120,9 +2117,6 @@ packages:
 
   caniuse-lite@1.0.30001799:
     resolution: {integrity: sha512-hG1bReV+OUU+MOqK4t/ZWI0tZOyz3rqS9XuhOUz1cIcbwBKjOyJEJuw9ER5JuNyqxNk8u/JUVbGibBOL1yrjFw==}
-
-  canvas-confetti@1.9.4:
-    resolution: {integrity: sha512-yxQbJkAVrFXWNbTUjPqjF7G+g6pDotOUHGbkZq2NELZUMDpiJ85rIEazVb8GTaAptNW2miJAXbs1BtioA251Pw==}
 
   canvg@3.0.11:
     resolution: {integrity: sha512-5ON+q7jCTgMp9cjpu4Jo6XbvfYwSB2Ow3kzHKfIyJfaCAOHLbdKPQqGKgfED/R5B+3TFFfe8pegYA+b423SRyA==}
@@ -5245,8 +5239,6 @@ snapshots:
       three: 0.169.0
 
   caniuse-lite@1.0.30001799: {}
-
-  canvas-confetti@1.9.4: {}
 
   canvg@3.0.11:
     dependencies:

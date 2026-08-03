@@ -1,5 +1,4 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { fireConfetti } from "../calculator/useConfetti";
 import {
   calculatePrice,
   type PricingResult,
@@ -89,9 +88,8 @@ export function CalculatorProvider({ children }: { children: React.ReactNode }) 
   const calcular = useCallback(() => {
     setCalcResult(result);
     setFlash(true);
-    if (services.length > 0) fireConfetti();
     window.setTimeout(() => setFlash(false), 320);
-  }, [result, services.length]);
+  }, [result]);
 
   const reset = useCallback(() => {
     setServices([]);

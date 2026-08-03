@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 import { COLORS } from "./tokens";
-import { fireConfetti } from "./useConfetti";
 import { Display } from "./Display";
 import { ServiceKey, Knob, BigKey } from "./Controls";
 import { generateQuotePDF } from "./exportPDF";
@@ -63,7 +62,6 @@ export function Device() {
   const calcular = () => {
     setCalcResult(result);
     setFlash(true);
-    if (services.length > 0) fireConfetti();
     window.setTimeout(() => setFlash(false), 320);
   };
 
