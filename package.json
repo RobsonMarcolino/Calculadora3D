@@ -73,16 +73,16 @@
     "vaul": "1.1.2"
   },
   "devDependencies": {
-    "@rollup/rollup-win32-x64-msvc": "4.62.2",
-    "@tailwindcss/vite": "4.1.12",
+    "@rollup/rollup-win32-x64-msvc": "4.62.3",
+    "@tailwindcss/vite": "4.3.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "@types/three": "0.169.0",
-    "@vitejs/plugin-react": "4.7.0",
+    "@vitejs/plugin-react": "6.0.5",
     "jsdom": "^30.0.1",
-    "tailwindcss": "4.1.12",
+    "tailwindcss": "4.3.3",
     "typescript": "^7.0.2",
-    "vite": "6.3.5",
+    "vite": "8.2.0",
     "vitest": "^4.1.10"
   },
   "peerDependencies": {
@@ -99,7 +99,7 @@
   },
   "pnpm": {
     "overrides": {
-      "vite": "6.3.5"
+      "vite": "8.2.0"
     }
   }
 }
