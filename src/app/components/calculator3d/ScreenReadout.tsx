@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Html } from "@react-three/drei";
-import { Info } from "lucide-react";
+import { Info, FileDown } from "lucide-react";
 import { COLORS, DOT, MONO, SCAN } from "../calculator/tokens";
 import { LogoMark } from "../calculator/Primitives";
 import { useRollingNumber } from "../calculator/useRollingNumber";
 import { formatNumber } from "../calculator/pricing";
 import { MethodologyModal } from "../calculator/MethodologyModal";
 import { useCalculator } from "./CalculatorContext";
+import { generateQuotePDF } from "../calculator/exportPDF";
 import type { Layout } from "./layout";
 
 // Pixel canvas for the readout DOM, mapped onto the 3D glass.
@@ -24,7 +25,8 @@ export function ScreenReadout({
   rotation?: [number, number, number];
   worldWidth?: number;
 }) {
-  const { show, projectPrice, servicesLine, selectorsLine } = useCalculator();
+  const state = useCalculator();
+  const { show, projectPrice, servicesLine, selectorsLine } = state;
   const rolled = useRollingNumber(show ? projectPrice : 0);
   const bigText = show ? formatNumber(rolled) : "0";
   const [infoOpen, setInfoOpen] = useState(false);
@@ -127,7 +129,7 @@ export function ScreenReadout({
             padding: 0,
           }}
           onMouseEnter={(e) => {
-            if (infoOpen) return; // don't override the hidden state when the popup is open
+            if (infoOpen) return;
             e.currentTarget.style.opacity = "1";
             e.currentTarget.style.color = COLORS.orange;
           }}
@@ -139,6 +141,40 @@ export function ScreenReadout({
         >
           <Info size={22} />
         </button>
+
+        {/* pdf export button */}
+        {show && (
+          <button
+            type="button"
+            onClick={() => generateQuotePDF(state)}
+            aria-label="Exportar orçamento em PDF"
+            style={{
+              position: "absolute",
+              bottom: 22,
+              right: 70, // offset from the info button
+              color: "#bcae8f",
+              opacity: infoOpen ? 0 : 0.65,
+              cursor: "pointer",
+              lineHeight: 0,
+              pointerEvents: infoOpen ? "none" : "auto",
+              background: "none",
+              border: "none",
+              padding: 0,
+            }}
+            onMouseEnter={(e) => {
+              if (infoOpen) return;
+              e.currentTarget.style.opacity = "1";
+              e.currentTarget.style.color = COLORS.orange;
+            }}
+            onMouseLeave={(e) => {
+              if (infoOpen) return;
+              e.currentTarget.style.opacity = "0.65";
+              e.currentTarget.style.color = "#bcae8f";
+            }}
+          >
+            <FileDown size={22} />
+          </button>
+        )}
 
         <MethodologyModal open={infoOpen} onClose={() => setInfoOpen(false)} />
       </div>
